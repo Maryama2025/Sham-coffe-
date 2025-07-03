@@ -1086,10 +1086,9 @@ section{
         <h1 class="heading"><span> ابقى </span>&ensp;على اتصال </h1>
         <div class="box-container">
             <div class="box" data-aos="fade-up">
-                
+                <div class="image">
                     <img src="https://images.pexels.com/photos/3944418/pexels-photo-3944418.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-            </div>
-        </div>
+                </div>
                 <div class="content">
                     <a href="#" class="title">نكهة القهوه المميزه </a>
                     <span> ادمن أدم٢/فبراير/٢٠٢٤</span>
@@ -1179,32 +1178,60 @@ section{
 <script>
     let navbar = document.querySelector('.navbar');
 
+
+
 document.querySelector('#menu-btn').onclick = () =>{
+
     navbar.classList.toggle('active');
+
     searchForm.classList.remove('active');
+
     cartItem.classList.remove('active');
+
 }
+
+
 
 let searchForm = document.querySelector('.search-form');
 
+
+
 document.querySelector('#search-btn').onclick = () =>{
+
     searchForm.classList.toggle('active');
+
     navbar.classList.remove('active');
+
     cartItem.classList.remove('active');
+
 }
+
+
 
 let cartItem = document.querySelector('.cart-items-container');
 
+
+
 document.querySelector('#cart-btn').onclick = () =>{
+
     cartItem.classList.toggle('active');
+
     navbar.classList.remove('active');
+
     searchForm.classList.remove('active');
+
 }
 
+
+
 window.onscroll = () =>{
+
     navbar.classList.remove('active');
+
     searchForm.classList.remove('active');
+
     cartItem.classList.remove('active');
+
 }
 </script>
 </body>
