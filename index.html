@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> sham coffee shop</title>
+    <!--font awsome and material icon cdn-->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&family=Noto+Nastaliq+Urdu:wght@400..700&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--style sheet link-->
+    <link rel="stylesheet" href="coffee.css">
+    <!--javascript file link-->
+    <script src="script.js"></script>
+    <!--aos cdn css links-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+  @import url(https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap);
+
+:root{
+    --main-color:#d3ad7f;
+    --black:#13131a;
+    --bg:#010103;
+    --border: 0.1rem solid rgba(255,255,255,0.3);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Tajawal',sans-serif;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.2 all linear;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+    font-family: 'Lemonada',Noto Nastaliq Urdu,'Tajawal';
+    background: var(--bg);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(images/489bb9e4bf27258fbe9ad1d07eb565e3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+}
+
+section{
+    margin: 0;
+    padding:2rem;
+}
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding:.9rem 3rem;
+    font-size: 3rem;
+    color:#3a2205;
+    font-weight: bold;
+    background: var(--main-color);
+    cursor: pointer;
+}
+
+.btn:hover{
+    letter-spacing: 0.5rem;
+}
+/*header style strats*/
+.header{
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0.3rem 3%;
+    border-bottom: var(--border);
+    position: fixed;
+    top:0; left: 0; right: 0;
+    z-index: 1000;
+}
+
+.header .logo span{
+    font-size:3rem;
+    color:#fff;
+}
+
+.header .navbar a{
+    margin:0 1rem;
+    font-size: 2.5rem;
+    color:#fff;
+}
+.header .navbar a span{
+    padding: 0;
+}
+.header .navbar a:hover{
+    color:var(--main-color);
+    border-bottom: .1rem solid var(--main-color);
+    padding-bottom: .5rem;
+}
+
+.header .icons div{
+    color:#fff;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+}
+
+.header .icons div:hover{
+    color:var(--main-color);
+}
+
+#menu-btn{
+    display: none;
+}
+
+.header .search-form{
+    position: absolute;
+    top:115%; right: 7%;
+    background:#010103;
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.header .search-form.active{
+    transform: scaleY(1);
+}
+
+.header .search-form input{
+    height: 100%;
+    width: 100%;
+    font-size: 3.5rem;
+    color:#fff;
+    padding:1rem;
+    text-transform: none;
+}
+
+.header .search-form label{
+    cursor: pointer;
+    font-size: 2.2rem;
+    margin-right: 1.5rem;
+    color:var(--black);
+}
+
+.header .search-form label:hover{
+    color:var(--main-color);
+}
+
+.header .cart-items-container{
+    position: absolute;
+    top:100%; right: -100%;
+    height: calc(100vh - 9.5rem);
+    width: 45rem;
+    background:var(--main-color);
+    padding:0 1.5rem;
+    max-height: 100vh;
+}
+
+.header .cart-items-container.active{
+    right: 0;
+}
+
+.header .cart-items-container .cart-item{
+    position: relative;
+    margin:1.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap:1.5rem;
+    padding:1rem 2.3rem;
+}
+.header .cart-items-container .cart-item:hover{
+    transform: scale(1.1);
+    background: #3a2205;
+    border-radius: 2rem;
+}
+.header .cart-items-container .cart-item:hover > h3{
+    background: var(--main-color);
+}
+.header .cart-items-container .cart-item .fa-times{
+    position: absolute;
+    top:1rem; right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+.header .cart-items-container .cart-item .fa-times:hover{
+    color:var(--main-color);
+}
+
+.header .cart-items-container .cart-item img{
+    height: 7rem;
+}
+
+.header .cart-items-container .cart-item .content h3{
+    font-size: 3.5rem;
+    font-weight: bolder;
+    color:#fff;
+    padding-bottom: .5rem;
+}
+
+.header .cart-items-container .cart-item .content .price{
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+}
+.header .cart-items-container .btn{
+    width: 87%;
+    background-color: #3a2205;
+    color:#fff;
+    text-align: center;
+    border-radius: 5rem;
+}
+/*header style ends*/
+
+/*home style strats*/
+.home{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(https://images.pexels.com/photos/416462/pexels-photo-416462.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size:cover ;
+    background-position: center;
+    color: #fff;
+}
+.home .content h2{
+    font-size:5rem ;
+    font-family:'Lemonada',serif;
+    text-transform: uppercase;
+    text-shadow: 0.1rem 0.1rem 0.3rem #eee;
+    color: #fff;
+}
+.home .content h3{
+    font-size: 3.5rem;
+    font-family:'Tajawal',sans-serif;
+    font-weight: bolder;
+    text-emphasis: 0.1rem 0.1rem 0.3rem #eee;
+    color: #fff;
+    margin: 1rem 0;
+}
+.home .content h3 span{
+    color:var(--main-color);
+}
+.home .content p{
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.9rem;
+    color: #ccc;
+}
+
+/*home style ends*/
+
+/*about style starts*/
+.about{
+    color: #fff;
+    background:var(--bg) ;
+    min-height: 100vh;
+}
+.about .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.about .row .image{
+    flex: 1 1 45rem;
+}
+.about .row .image img{
+    width: 100%;
+}
+.about .row .content{
+    flex: 1 1 45rem;
+    padding: 2rem;
+}
+.about .row .content h3{
+    font-size: 2.7rem;
+    font-family: 'Noto Nastaliq Urdu',serif;
+    color: var(--main-color);
+    letter-spacing: 0.2rem;
+}
+.about .row .content p{
+    
+    padding: 1rem;
+    
+    letter-spacing: 0.2rem;
+    font-size: 2.5rem;
+    font-weight: lighter;
+    line-height: 2.5rem;
+    color: #ccc;
+} 
+/*about style ends*/
+
+/*menu section strats*/
+
+.menu .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+    gap: 1.5rem;
+}
+.menu .box-container .box{
+    padding: 5rem;
+    text-align: center;o
+    border: var(--border);
+}
+.menu .box-container .box img{
+    height: 10rem;
+}
+.menu .box-container .box h3{
+    color: #fff;
+    font-size: 2rem;
+    padding: 1rem 0.2rem;
+}
+.menu .box-container .box .price{
+    color: #fff;
+    text-decoration: line-through;
+    font-weight: lighter;
+}
+.menu .box-container .box:hover{
+    background: #fff;
+}
+.menu .box-container .box:hover>*{
+    color: #3a2205;
+}
+.menu .box-container .box .btn{
+    border-radius: 2rem;
+    font-size: 2.5rem;
+}
+.menu .box-container .box .btn:hover{
+    transform: scale(1.3);
+    letter-spacing: normal;
+}
+/*menu section ends*/
+
+/*products section starts*/
+.products{
+    background: var(--bg);
+    min-height: 100vh;
+}
+.products .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+    gap: 4rem;
+}
+.products .box-container .box{
+    text-align: center;
+    border: var(--border);
+    padding: 2rem;
+}
+.products .box-container .box:hover{
+    transform: scale(1.1);
+}
+.products .box-container .box:hover>*{
+    color: #3a2205;
+}
+.products .box-container .box .icons a{
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    border: var(--border);
+    color: #fff;
+    margin: 0.3rem;
+}
+.products .box-container .box .icons a:hover{
+    background: var(--main-color);
+}
+.products .box-container .box .image{
+    padding: 2.5rem 0;
+}
+.products .box-container .box .image img{
+    height: 25rem;
+}
+.products .box-container .box .image img:hover{
+    transform: scale(1.1);
+}
+.products .box-container .box .content h3{
+    color: #fff;
+    font-size: 3.2rem;
+    cursor: pointer;
+}
+.products .box-container .box .content h3:hover{
+   transform: scale(1.2);
+}
+.products .box-container .box .content .stars{
+    padding: 1.5rem;
+    cursor: pointer;
+}
+.products .box-container .box .content .stars i{
+    font-size: 1.7rem;
+    color: var(--main-color);
+    cursor: pointer;
+}
+.products .box-container .box .content .stars i:hover{
+    transform: scale(1.2);
+}
+.products .box-container .box .content .price{
+    color: #fff;
+    font-size: 3.2rem;
+}
+.products .box-container .box .content .price span{
+    text-decoration: line-through;
+    font-weight: lighter;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+.products .box-container .box .content .price:hover{
+    transform: scale(1.2);
+}
+
+/*products section ends*/
+
+/*review section starts*/
+
+.review{
+    min-height: 100vh;
+}
+.review .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+    gap: 2rem;
+}
+.review .box-container .box{
+    border: var(--border);
+    text-align: center;
+    padding: 3rem 2rem;
+}
+.review .box-container .box:hover{
+    background-color: #fff;
+}
+.review .box-container .box:hover>*{
+    color: #3a2205;
+}
+.review .box-container .box p{
+    font-size: 2rem;
+    font-family: 'Lemonada',serif;
+    line-height: 1.8;
+    color: #eee;
+    padding: 2rem 0;
+}
+.review .box-container .box .user{
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.review .box-container .box .user:hover{
+    transform: scale(1.2);
+}
+.review .box-container .box h3{
+    padding: 1rem 0;
+    font-size: 3rem;
+    color: #fff;
+}
+.review .box-container .box h3:hover{
+    transform: scale(1.2);
+}
+.review .box-container .box .stars i{
+    font-size: 1.5rem;
+    color: var(--main-color);
+}
+.review .box-container .box .stars i:hover{
+    transform: scale(1.2);
+}
+
+/*review section ends*/ 
+
+/*contact section starts*/
+.contact{
+    background: var(--bg);
+    min-height: 100vh;
+}
+.contact .row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.contact .row .map{
+    flex: 1 1 45rem;
+    width: 100%;
+    object-fit: cover;
+}
+.contact .row form{
+    flex: 1 1 45rem;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+.contact .row form h3{
+    text-transform: uppercase;
+    font-size: 4rem;
+    color: #fff;
+}
+.contact .row form .inputBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background: var(--black);
+    border: var(--border);
+}
+.contact .row form .inputBox span{
+    color: #fff;
+    font-size: 3rem;
+    padding-left: 2rem;
+}
+.contact .row form .inputBox input{
+    width: 100%;
+    padding: 2rem;
+    font-size: 4rem;
+    color: #fff;
+    text-transform: none;
+    background: none;
+}
+::placeholder{
+    color: #ccc;
+    font-size: 2.5rem;
+}
+/*contact section ends*/
+
+/*blogs section starts*/
+
+.blogs .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+    gap: 2rem;
+}
+.blogs .box-container .box{
+    border: var(--border);
+}
+.blogs .box-container .box .image{
+    height: 25rem;
+    overflow: hidden;
+    width: 100%;
+}
+.blogs .box-container .box .image img{
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+.blogs .box-container .box .image img:hover{
+    transform: scale(1.2);
+}
+.blogs .box-container .box .content{
+    padding: 2rem;
+    text-align: center;
+}
+.blogs .box-container .box .content .title{
+    font-size: 3.3rem;
+    line-height: 1.7;
+    color: #fff;
+    text-align: center;
+}
+.blogs .box-container .box .content .title:hover{
+    color: var(--main-color);
+}
+.blogs .box-container .box .content span{
+    color: var(--main-color);
+    display: block;
+    padding-top: 1rem;
+    font-size: 2.5rem;
+    font-family: 'Noto Nastaliq Urdu',serif;
+}
+.blogs .box-container .box .contact p{
+    font-size: 2rem;
+    line-height: 1.8;
+    color: #cccc;
+    padding: 1rem 0;
+}
+
+/*blogs section ends*/
+
+/*footer section starts*/
+
+.footer{
+    margin: 0;
+    padding:2rem;
+    background: var(--bg);
+    text-align: center;
+}
+.footer .share{
+    padding: 1rem 0;
+}
+.footer .share a{
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2.5rem;
+    color: #fff;
+    border: var(--border);
+    margin: 0.3rem;
+    border-radius: 50%;
+}
+.footer .share a:hover{
+    background-color: var(--main-color);
+    color: #3a2205;
+}
+.footer .links{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    gap: 1rem;
+}
+.footer .links a{
+    padding: 0.7rem 2rem;
+    color: #fff;
+    border: var(--border);
+    font-size: 2.5rem;
+}
+.footer .links a:hover{
+    background-color: var(--main-color);
+    color: #3a2205;
+}
+.footer .credit{
+    font-size: 2.5rem;
+    color: #fff;
+    font-weight: lighter;
+    padding: 2.3rem 1.5rem;
+    border-top: var(--border);
+}
+.footer .credit span{
+    color: var(--main-color);
+}
+.footer .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    gap: 2rem;
+}
+.footer .row .title{
+    padding: 0.7rem 2rem;
+    margin-top: 2rem;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+.footer .row .title:hover{
+    transform: scale(1.2);
+    color: var(--main-color);
+}
+.footer .row .form input{
+    margin: 0.5rem auto;
+}
+.footer .row .form input[type="submit"]{
+    border-radius: 3rem;
+    margin: 1rem 2.7rem;
+}
+.footer .row .form input[type="submit"]:hover{
+    letter-spacing: normal;
+    transform: scale(1.1);
+}
+.footer .row .form input[type="text"]{
+    outline: none;
+    border-radius: 20%;
+    background: none;
+    height: 4rem;
+    width: 22rem;
+    padding: 0 1rem;
+    font-size: 2rem;
+    font-family: 'Tajawal',serif;
+    border: var(--border);
+    color: #fff;
+}
+.footer .row .form input[type="text"]:hover{
+    transform: scale(1.1);
+}
+
+/*footer section ends*/
+
+
+/*section heading title style*/
+.heading{
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    padding:3.5rem 0;
+    font-size: 4rem;
+}
+.heading span{
+    color: var(--main-color);
+    text-transform: uppercase;
+}
+
+/* media queries  */
+@media (max-width:991px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .header{
+        padding:1.5rem 2rem;
+    }
+    section{
+        padding:2rem;
+    }
+}
+@media (max-width:768px){
+
+    #menu-btn{
+        display: inline-block;
+    }
+
+    .header .navbar{
+        position: absolute;
+        top:100%; right: -100%;
+        background: #fff;
+        width: 35rem;
+        height: calc(100vh - 9.5rem);
+    }
+
+    .header .navbar.active{
+        right:0;
+    }
+    .header .navbar{
+        color: #fff;
+        background-color:#010103;
+    }
+
+    .header .navbar a{
+        display: block;
+        text-align: center;
+        margin: 3.2rem;
+        padding: 1.5rem;
+        font-size: 3rem;
+        border-radius: 5rem;
+    }
+    .header .navbar a:hover{
+        transform: scale(1.2);
+        color:var(--main-color);
+    }
+
+    .header .search-form{
+        width: 90%;
+        right: 2rem;
+    }
+    .home{
+        justify-content: center;
+        text-align: center;
+    }
+    .home .content h2{
+        font-size:4.5rem ;
+    }
+    .home .content .h2{
+        font-size: 2rem;
+    }
+    .home .content p{
+        font-size: 1.5rem;
+    }
+    .about .row .content{
+        text-align: center;
+    }
+    .about .row .content p{
+        font-size: 3rem;
+        font-weight: bold;
+        line-height: 2.5rem;
+    }
+}
+
+@media (max-width:450px){
+
+    html{
+        font-size: 50%;
+    }
+
+}
+    </style>
+</head>
+<body>
+    <!--header section strats-->
+    <header class="header">
+
+        <a href="#" class="logo">
+                       <span class="material-icons" style="font-size: 50px;display: block;padding: 0 !important;margin: 0 !important;">coffee</span>
+        </div>
+        </a>
+    
+        <nav class="navbar">
+            <a href="#home"><i class="fa fa-home"></i>&ensp;Home</a>
+            <a href="#about"><i class="fa fa-globe"></i>&ensp;About</a>
+            <a href="#menu"><span class="material-icons">menu_book</span>&ensp;Menu</a>
+            <a href="#products"><span class="fa fa-product-hunt"></span>&ensp;Products</a>
+            <a href="#review"><i class="fa fa-star"></i>&ensp;Review</a>
+            <a href="#contact"><i class="fa fa-fw fa-envelope"></i>&ensp;Contact</a>
+            <a href="#blogs"><span class="material-icons">coffee</span>&ensp;Blogs</a>
+            <a href="login.html"><i class="fa fa-sign-out"></i>&ensp;Sign out</a>
+        </nav>
+        <div class="icons">
+            <div class="fa fa-search" id="search-btn"></div>
+            <div class="fa fa-shopping-cart" id="cart-btn"></div>
+            <div class="fa fa-bars" id="menu-btn"></div>
+        </div>
+    
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fa fa-search"></label>
+        </div>
+        <div class="cart-items-container">
+            <div class="cart-item">
+                <span class="fa fa-times"></span>
+                <img src="https://cdn.pixabay.com/photo/2017/04/25/08/02/coffee-beans-2258839_960_720.jpg" alt="">
+                <div class="content">
+                    <h3>cart item 01</h3>
+                    <div class="price">$15.99/-</div>
+                </div>
+            </div>
+            <div class="cart-item">
+                <span class="fa fa-times"></span>
+                <img src= "https://images.unsplash.com/photo-1459755486867-b55449bb39ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80" alt="">
+                <div class="content">
+                    <h3>cart item 02</h3>
+                    <div class="price">$15.99/-</div>
+                </div>
+            </div>
+            <div class="cart-item">
+                <span class="fa fa-times"></span>
+                <img src="https://images.unsplash.com/photo-1459755486867-b55449bb39ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80" alt="">
+                <div class="content">
+                    <h3>cart item 03</h3>
+                    <div class="price">$15.99/-</div>
+                </div>
+            </div>
+            <div class="cart-item">
+                <span class="fa fa-times"></span>
+                <img src="https://images.unsplash.com/photo-1459755486867-b55449bb39ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80" alt="">
+                <div class="content">
+                    <h3>cart item 04</h3>
+                    <div class="price">$15.99/-</div>
+                </div>
+            </div>
+            <a href="#" class="btn">checkout now</a>
+        </div>
+    
+    </header>
+    <!--header section ends-->
+<!--home section strats-->
+    <section class="home" id="home">
+        <div class="content" data-aos="zoom-out">
+            <h2>شام كافيه</h2>
+            <h3>قهوتنا ليست مجرد مشروب.. <span>  إنها قصه تروى </span></h3>
+            <p>في الصباح.. والمساء.. وفي كل الأوقات...
+            </p>
+            <a href="#" class="btn">اطلب الآن </a>
+        </div>
+    </section>
+    <!--home section ends-->
+    
+    <!--about section strats-->
+    <section class="about" id="about">
+        <h1 class="heading"> <span>عن</span>&ensp;قهوتنا </h1>
+        <div class="row">
+            <div class="content" data-aos="fade-right">
+                <h3>ما الذي يجعل قهوتنا مميزه ؟</h3>
+                <p>نسعى دائمًا لتحضير القهوة بأفضل الطرق، سواءً كانت إسبريسو قويًا أو قهوة تركية ناعمة، مع الاهتمام بدرجة الحرارة والتوقيت المناسب."  </p>
+              
+                <a href="#" class="btn">اكتشف أكثر </a>
+            </div>
+            <div class="image">
+                <img src="https://dl.dropbox.com/s/gxy1eqilxxpzyrp/%E2%80%94pngtree%E2%80%94flying%20cup%20of%20coffee%20with_5057949.png?dl=0" alt="" data-aos="fade-left">
+            </div>
+        </div>
+    </section>
+    <!--about section ends-->
+
+    <!--menu section starts-->
+    <section class="menu" id="menu">
+        <h1 class="heading">كافي <span>منيو </span>&ensp; </h1>
+        <div class="box-container">
+            <div class="box" data-aos="flip-up">
+                <img src="https://images.pexels.com/photos/876401/pexels-photo-876401.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                <h3>أمريكانو </h3>
+                <div class="price">20.99$ <span>25.99$</span></div>
+                <a href="#" class="btn">اضف إلى السله </a>
+            </div>
+            <div class="box" data-aos="flip-up">
+                <img src="https://cdn.pixabay.com/photo/2017/03/20/20/23/coffee-2160244_960_720.jpg" alt="">
+                <h3> لاتيه </h3>
+                <div class="price">20.99$ <span>25.99$</span></div>
+                <a href="#" class="btn"> اضف إلى السله</a>
+            </div>
+            <div class="box" data-aos="flip-up">
+                <img src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                <h3> فلات وايت</h3>
+                <div class="price">20.99$ <span>25.99$</span></div>
+                <a href="#" class="btn"> اضف إلى السله</a>
+            </div>
+            <div class="box" data-aos="flip-up">
+                <img src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                <h3>ماكياتو </h3>
+                <div class="price">20.99$ <span>25.99$</span></div>
+                <a href="#" class="btn">اضف إلى السله</a>
+            </div>
+            <div class="box" data-aos="flip-up"> 
+                <img src="https://images.pexels.com/photos/2318005/pexels-photo-2318005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                <h3>كراميل ماكياتو</h3>
+                <div class="price">20.99$ <span>25.99$</span></div>
+                <a href="#" class="btn">اضف إلى السله</a>
+            </div>
+            <div class="box" data-aos="flip-up">
+                <img src="https://images.pexels.com/photos/2318005/pexels-photo-2318005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                <h3>كابتشينو </h3>
+                <div class="price">20.99$ <span>25.99$</span></div>
+                <a href="#" class="btn">اضف إلى السله</a>
+            </div>
+            <div class="box" data-aos="flip-up">
+                <img src="https://images.pexels.com/photos/3944418/pexels-photo-3944418.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                <h3>اسبريسو </h3>
+                <div class="price">20.99$ <span>25.99$</span></div>
+                <a href="#" class="btn">اضف إلى السله </a>
+            </div>
+            <div class="box" data-aos="flip-up">
+                <img src="https://cdn.pixabay.com/photo/2017/03/17/10/29/coffee-2151200_960_720.jpg" alt="">
+                <h3>قهوه الحليب الفرنسيه</h3>
+                <div class="price">20.99$ <span>25.99$</span></div>
+                <a href="#" class="btn">اضف إلى السله</a>
+            </div>
+        </div>
+    </section>
+    <!--menu section ends-->
+    
+    <!--products section starts-->
+    <section class="products" id="products">
+        <h1 class="heading"><span>عن</span>&ensp;منتجاتنا </h1>
+        <div class="box-container">
+            <div class="box" data-aos="flip-down">
+                <div class="icons">
+                    <a href="#" class="fa fa-shopping-cart"></a>
+                    <a href="#" class="fa fa-heart"></a>
+                    <a href="#" class="fa fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="https://images.pexels.com/photos/3944418/pexels-photo-3944418.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                </div>
+                <div class="content">
+                    <h3>قهوه بنكهات خاصه وفريده</h3>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                    <div class="price">20.98$ <span>25.98$</span></div>
+                </div>
+            </div>
+            <div class="box" data-aos="flip-down">
+                <div class="icons">
+                    <a href="#" class="fa fa-shopping-cart"></a>
+                    <a href="#" class="fa fa-heart"></a>
+                    <a href="#" class="fa fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="https://images.pexels.com/photos/7125540/pexels-photo-7125540.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                </div>
+                <div class="content">
+                    <h3>قهوه طازجه فريش</h3>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                    <div class="price">20.98$ <span>25.98$</span></div>
+                </div>
+            </div>
+            <div class="box" data-aos="flip-down">
+                <div class="icons">
+                    <a href="#" class="fa fa-shopping-cart"></a>
+                    <a href="#" class="fa fa-heart"></a>
+                    <a href="#" class="fa fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="https://cdn.pixabay.com/photo/2013/08/11/19/46/coffee-171653_960_720.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>قهوه بارده ومثلجه</h3>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                    <div class="price">20.98$ <span>25.98$</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--products section ends-->
+<!--review section starts-->
+    <section class="review" id="review">
+        <h1 class="heading"> تعليقات<span> الزوار </span>&ensp;</h1>
+        <div class="box-container">
+            <div class="box" data-aos="fade-out">
+                <img src="images/quote-img.png" alt="" class="quote">
+                <p><br>أحلى قهوة جربتها منذ فترة.. استمروا  ...... لاحظت الفرق في الجوده ..دائما مميزين .  
+                    
+                </p>
+                <img src="https://images.pexels.com/photos/1090393/pexels-photo-1090393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""
+               class="user">
+                <h3>زين </h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+            </div>
+            <div class="box" data-aos="fade-out">
+                <img src="" alt="" class="quote">
+                <p> القهوة هنا تخليك تنسى كل كافيهات الحياة.. 
+ "محتاج فلتر لصورتي؟ لا، بس كوب القهوة هذا يكفي!   
+                </p>
+                <img src="https://cdn.pixabay.com/photo/2017/03/20/20/23/coffee-2160244_960_720.jpg" alt="" class="user">
+                <h3>ماريا </h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+            </div>
+            <div class="box" data-aos="fade-out">
+                <img src="images/quote-img.png" alt="" class="quote">
+                <p>بعد اليوم ما أقدر أشرب قهوة من مكان ثاني.. شكرًا لـ شام كافيه 
+                </p>
+                <img src="https://images.pexels.com/photos/8004825/pexels-photo-8004825.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" class="user">
+                <h3>أنس </h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--review section ends-->
+
+    <!--contact section starts-->
+    
+    <section class="contact" id="contact">
+        <h1 class="heading"><span>تواصل </span>&ensp;معنا  </h1>
+        <div class="row">
+            <iframe class="map"
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.041119948415!2d40.12837231521779!3d35.33362218067798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15577b5f4b5f9b1b%3A0x3a3a3a3a3a3a3a3a!2z2KfZhNiq2LnZhCDYp9mE2KfZhNmF2Kkg2KfZhNij2YTYr9mK2KkgKNin2YTYudin2YTZiNmK2Kkp!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" 
+  style="border:0;" 
+            allowfullscreen="" loading="lazy" data-aos="fade-right">
+            </iframe>
+            <form action="" data-aos="fade-left">
+                <h3 class="heading"><span>ابقى </span>&ensp;على اتصال </h3>
+                <div class="inputBox">
+                    <span class="fa fa-user"></span>
+                    <input type="text" placeholder="Name">
+                </div>
+                <div class="inputBox">
+                    <span class="fa fa-envelope"></span>
+                    <input type="email" placeholder="E-mail">
+                </div>
+                <div class="inputBox">
+                    <span class="fa fa-phone"></span>
+                    <input type="number" placeholder="Phone">
+                </div>
+                <input type="submit" value="تواصل الآن" class="btn">
+            </form>
+        </div>
+    </section>
+    <!--contact section ends-->
+
+    <!--blog section starts-->
+
+    <section class="blogs" id="blogs">
+        <h1 class="heading"><span> ابقى </span>&ensp;على اتصال </h1>
+        <div class="box-container">
+            <div class="box" data-aos="fade-up">
+                <div class="image">
+                    <img src="https://images.pexels.com/photos/3944418/pexels-photo-3944418.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                </div>
+                <div class="content">
+                    <a href="#" class="title">نكهة القهوه المميزه </a>
+                    <span> ادمن أدم٢/فبراير/٢٠٢٤</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                         Culpa nemo alias vel eum laudantium eligendi, illum praesentium deserunt perspiciatis vitae perferendis!
+                         Eaque ratione sunt ad nulla dolores laudantium quisquam exercitationem.
+                    </p>
+                    <a href="#" class="btn">اقرأ المزيد</a>
+                </div>
+            </div>
+            <div class="box" data-aos="fade-up">
+                <div class="image">
+                    <img src="https://cdn.pixabay.com/photo/2013/08/11/19/46/coffee-171653_960_720.jpg" alt="">
+                </div>
+                <div class="content">
+                    <a href="#" class="title">نكهة القهوه المميزه </a>
+                    <span>ادمن أدم ١٦/مارس /٢٠٢٤</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                         Culpa nemo alias vel eum laudantium eligendi, illum praesentium deserunt perspiciatis vitae perferendis!
+                         Eaque ratione sunt ad nulla dolores laudantium quisquam exercitationem.
+                    </p>
+                    <a href="#" class="btn"> اقرأ المزيد</a>
+                </div>
+            </div>
+            <div class="box" data-aos="fade-up">
+                <div class="image">
+                    <img src="https://cdn.pixabay.com/photo/2017/03/17/10/29/coffee-2151200_960_720.jpg" alt="">
+                </div>
+                <div class="content">
+                    <a href="#" class="title">نكهة القهوه المميزه </a>
+                    <span>ادمن أدم ١٨/ابريل /٢٠٢٤</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                         Culpa nemo alias vel eum laudantium eligendi, illum praesentium deserunt perspiciatis vitae perferendis!
+                         Eaque ratione sunt ad nulla dolores laudantium quisquam exercitationem.
+                    </p>
+                    <a href="#" class="btn">اقرأ المزيد </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--blog section ends-->
+
+    <!--footer section starts-->
+    <footer class="footer">
+        <div class="share" data-aos="zoom-out">
+            <a href="#" class="fa fa-facebook-f"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-linkedin"></a>
+            <a href="#" class="fa fa-pinterest"></a>
+        </div>
+        <div class="links" data-aos="zoom-out">
+            <a href="#home"><i class="fa fa-home"></i>&ensp;بيت</a>
+            <a href="#about"><i class="fa fa-globe"></i>&ensp;حول</a>
+            <a href="#menu"><span class="material-icons">menu_book</span>&ensp;قائمه </a>
+            <a href="#products"><span class="fa fa-product-hunt"></span>&ensp;منتجات</a>
+            <a href="#review"><i class="fa fa-star"></i>&ensp;مراجعه</a>
+            <a href="#contact"><i class="fa fa-fw fa-envelope"></i>&ensp;تواصل</a>
+            <a href="#blogs"><span class="material-icons">coffee</span>&ensp;مدونات</a>
+            <a href="login.html"><i class="fa fa-sign-out"></i>&ensp;مغادره </a>
+        </div>
+        <div class="row" data-aos="zoom-out">
+            <div class="title">
+                <h3>النشره الاخباريه </h3>
+            </div>
+            <div class="form">
+                <input type="text">
+                <input type="submit" value="اشترك" class="btn"> 
+            </div>
+        </div>
+        <div class="credit"> جميع الحقوق محفوظه &ensp;<span>م.هوازن شحاده  </span> مطور الواجهة الأماميه للويب  </div>
+    </footer>
+    <!--footer section endts-->
+
+    <!--aos cdn javascript link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--initiation of AOS-->
+    <script>
+        AOS.init({
+            delay:400,
+            duration:1000
+        })
+    </script>
+
+<!-- custom js file link  -->
+<script>
+    let navbar = document.querySelector('.navbar');
+
+document.querySelector('#menu-btn').onclick = () =>{
+    navbar.classList.toggle('active');
+    searchForm.classList.remove('active');
+    cartItem.classList.remove('active');
+}
+
+let searchForm = document.querySelector('.search-form');
+
+document.querySelector('#search-btn').onclick = () =>{
+    searchForm.classList.toggle('active');
+    navbar.classList.remove('active');
+    cartItem.classList.remove('active');
+}
+
+let cartItem = document.querySelector('.cart-items-container');
+
+document.querySelector('#cart-btn').onclick = () =>{
+    cartItem.classList.toggle('active');
+    navbar.classList.remove('active');
+    searchForm.classList.remove('active');
+}
+
+window.onscroll = () =>{
+    navbar.classList.remove('active');
+    searchForm.classList.remove('active');
+    cartItem.classList.remove('active');
+}
+</script>
+</body>
+</html>
